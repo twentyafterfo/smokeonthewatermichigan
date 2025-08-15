@@ -2,100 +2,95 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smoke on the Water Michigan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smoke on the Water Michigan — Cannabis-Friendly Boat Experience</title>
+  <meta name="description" content="Michigan’s premier cannabis-friendly boat experience. BYOC private charters near New Buffalo. Safety-first, alcohol-free, 21+." />
+  <meta property="og:title" content="Smoke on the Water Michigan" />
+  <meta property="og:description" content="Cannabis-friendly boat experience on Lake Michigan. BYOC private charters, 21+, alcohol-free." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0a3b2a" />
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #0f325e, #214f8c);
-      color: #fff;
-      line-height: 1.6;
+    /* --- Base --- */
+    :root{
+      --bg1:#062a3a;      /* deep lake */
+      --bg2:#0a3b2a;      /* pine green */
+      --card:#0f2f3f;     /* dark teal */
+      --text:#f0f7f4;     /* off white */
+      --muted:#c8e7d7;
+      --accent:#22c55e;   /* leaf green */
+      --accent-2:#14b8a6; /* teal */
+      --cta:#f59e0b;      /* amber */
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
     }
-    header {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      text-align: center;
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:linear-gradient(150deg,var(--bg1),var(--bg2));}
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    header{padding:32px 0 10px; position:relative}
+    h1{font-size: clamp(28px, 5vw, 56px); margin:0 0 6px; letter-spacing:.4px}
+    .tag{opacity:.9; font-weight:500; margin:0 0 24px}
+    .hero{
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:28px; align-items:center;
+      padding:28px; background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.0));
+      border:1px solid rgba(255,255,255,.08); border-radius: var(--radius); box-shadow: var(--shadow);
+      position:relative; overflow:hidden;
     }
-    h1 {
-      margin: 0;
-      font-size: 2.5em;
-      font-weight: 700;
+    /* faint cannabis pattern */
+    .hero::after{
+      content:""; position:absolute; inset:-40px -20px auto auto; width:360px; height:360px; opacity:.07; filter:blur(1px);
+      background: radial-gradient(circle at 60% 40%, #fff 0 2px, transparent 3px),
+                  radial-gradient(circle at 30% 70%, #fff 0 2px, transparent 3px),
+                  radial-gradient(circle at 80% 70%, #fff 0 2px, transparent 3px);
+      mask: url(#leaf-mask);
+      -webkit-mask: url(#leaf-mask);
+      mask-size:contain; -webkit-mask-size:contain; mask-repeat:no-repeat; -webkit-mask-repeat:no-repeat;
     }
-    .tagline {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-    }
-    h2 {
-      font-size: 1.8em;
-      margin-bottom: 10px;
-      color: #ffe082;
-    }
-    p {
-      margin: 0 0 15px;
-    }
-    .cta {
-      display: inline-block;
-      background: #ff8c00;
-      color: #fff;
-      padding: 12px 25px;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
-      background: rgba(0, 0, 0, 0.4);
+    .lead{font-size:clamp(16px, 2vw, 18px); color:var(--muted); line-height:1.65}
+    .cta{display:inline-block; margin-top:18px; background:linear-gradient(90deg,var(--cta),#fbbf24);
+         color:#1b1b1b; font-weight:700; padding:14px 18px; border-radius:12px; text-decoration:none; box-shadow:var(--shadow)}
+    .cta.secondary{background:transparent;border:1px solid rgba(255,255,255,.2); color:var(--text); margin-left:10px}
+    .boat-graphic{width:100%; max-width:520px; display:block; margin:auto}
+    .section{margin-top:38px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+    .card{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 10px; font-size:20px}
+    .card p{margin:0; color:var(--muted)}
+    .icon{width:26px; height:26px; vertical-align:middle; margin-right:8px}
+    .disclaimer{margin-top:30px; font-size:14px; color:#cde7dc; opacity:.85}
+    footer{margin:46px 0 12px; opacity:.85; font-size:14px; text-align:center}
+
+    /* waves divider */
+    .waves{margin:34px 0}
+    .waves svg{display:block; width:100%; height:auto; opacity:.45}
+
+    /* responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .section{grid-template-columns:1fr}
+      .cta.secondary{display:block; margin:12px 0 0}
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Smoke on the Water Michigan</h1>
-    <p class="tagline">Michigan’s premier cannabis-friendly boat experience</p>
-  </header>
+  <!-- SVG masks and icons (inline for single-file deploy) -->
+  <svg width="0" height="0" style="position:absolute">
+    <!-- cannabis leaf mask for the subtle hero pattern -->
+    <defs>
+      <svg id="leaf-mask" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
+        <path fill="white" d="M50 10c5 10 7 16 9 24 7-9 15-14 23-16-5 9-8 17-9 26 9-3 16-2 22 1-8 6-15 9-25 10 4 5 7 10 10 16-9-3-16-6-22-11-1 9-2 16-4 24-2-8-3-15-4-24-6 5-13 8-22 11 3-6 6-11 10-16-10-1-17-4-25-10 6-3 13-4 22-1-1-9-4-17-9-26 8 2 16 7 23 16 2-8 4-14 9-24Z"/>
+      </svg>
+    </defs>
+  </svg>
 
-  <section>
-    <h2>Welcome</h2>
-    <p>
-      Imagine cruising along beautiful Lake Michigan with friends, fresh air,
-      and your favorite cannabis in a safe, licensed lounge. Smoke on the
-      Water Michigan offers a unique, upscale cruise experience where adults
-      can unwind and enjoy cannabis in a controlled environment.
-    </p>
-  </section>
+  <div class="wrap">
+    <header>
+      <h1>Smoke on the Water Michigan</h1>
+      <p class="tag">Michigan’s premier cannabis-friendly boat experience</p>
+    </header>
 
-  <section>
-    <h2>Our Experience</h2>
-    <p>
-      • Private charters for up to six guests (BYOC – bring your own cannabis)<br />
-      • Comfortable seating, panoramic lake views & relaxing music<br />
-      • Complimentary water and gourmet snacks (alcohol free)<br />
-      • Licensed captain and crew ensuring safety and compliance<br />
-    </p>
-  </section>
-
-  <section>
-    <h2>Coming Soon</h2>
-    <p>
-      We’re working through licensing and local approvals. Join our mailing list
-      to receive updates about our launch date, special preview cruises, and
-      exclusive offers.
-    </p>
-    <a href="mailto:info@smokeonthewatermichigan.com" class="cta">Join the mailing list</a>
-  </section>
-
-  <footer>
-    &copy; 2025 Smoke on the Water Michigan &bull; All rights reserved
-  </footer>
-</body>
-</html>
+    <section class="hero">
+      <div>
+        <p class="lead">
+          Cruise Lake Michigan with friends, fresh air, and your favorite cannabis in a safe, licensed lounge environment.
+          Our private BYOC charters (up to six guests) blend lakeside vibes with comfort, compliance, and curated m
