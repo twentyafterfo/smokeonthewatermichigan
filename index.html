@@ -173,5 +173,33 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
+  <!-- 21+ Age Gate -->
+<div id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-title" style="position:fixed; inset:0; background:rgba(6,42,58,.92); backdrop-filter:blur(4px); display:none; align-items:center; justify-content:center; z-index:9999;">
+  <div style="max-width:560px; width:92%; background:#0f2f3f; border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:24px; color:#f0f7f4; box-shadow:0 10px 30px rgba(0,0,0,.35); text-align:center;">
+    <h2 id="age-title" style="margin:0 0 8px; font-size:28px;">Are you 21 or older?</h2>
+    <p style="margin:0 0 16px; opacity:.9;">We’re a cannabis-friendly experience. You must be 21+ to enter.</p>
+    <div style="display:flex; gap:12px; justify-content:center;">
+      <button id="age-yes" style="background:linear-gradient(90deg,#f59e0b,#fbbf24); color:#1b1b1b; font-weight:700; padding:12px 16px; border-radius:12px; border:none; cursor:pointer;">Yes, I am 21+</button>
+      <button id="age-no" style="background:transparent; color:#f0f7f4; border:1px solid rgba(255,255,255,.3); padding:12px 16px; border-radius:12px; cursor:pointer;">No</button>
+    </div>
+  </div>
+</div>
+<script>
+  (function(){
+    try {
+      var ok = localStorage.getItem('sotw_age_ok');
+      var overlay = document.getElementById('age-gate');
+      if(!ok){ overlay.style.display = 'flex'; }
+      document.getElementById('age-yes').onclick = function(){
+        try { localStorage.setItem('sotw_age_ok','yes'); } catch(e){}
+        overlay.style.display = 'none';
+      };
+      document.getElementById('age-no').onclick = function(){
+        window.location.href = 'https://www.google.com';
+      };
+    } catch(e){}
+  })();
+</script>
+
 </body>
 </html>
